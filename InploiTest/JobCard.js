@@ -9,8 +9,10 @@ import {
   Dimensions
 } from 'react-native';
 
-  var width = Dimensions.get('window').width; 
+  var width = Dimensions.get('window').width;
   var height = Dimensions.get('window').height;
+
+  // Job Card class. Reprents a single job card
 
 export default class JobCard extends Component {
 
@@ -65,12 +67,12 @@ var styles = StyleSheet.create({
       shadowRadius: 4,
       elevation: 1,
     },
-    imageContainer: { 
-      flex: 0.5, 
+    imageContainer: {
+      flex: 0.5,
     },
-    thumbnail: { 
-      width: 53, 
-      height: 81, 
+    thumbnail: {
+      width: 53,
+      height: 81,
     },
     cover: {
       flex: 0.5,
@@ -79,28 +81,28 @@ var styles = StyleSheet.create({
       top: 0,
       bottom: 0,
     },
-    bottomContainer: { 
+    bottomContainer: {
       flex: 0.5,
       marginHorizontal: 20,
       justifyContent: 'center'
     },
-    title: { 
-      fontSize: 28, 
-      marginBottom: 0, 
+    title: {
+      fontSize: 28,
+      marginBottom: 0,
       textAlign: 'left',
-    }, 
+    },
     subtitle: {
-      textAlign: 'left', 
+      textAlign: 'left',
       fontSize: 20,
       marginBottom: 10,
     },
-    description: { 
-      textAlign: 'left', 
+    description: {
+      textAlign: 'left',
       marginBottom: 4,
       marginRight: 30,
     },
-    year: { 
-      textAlign: 'left', 
+    year: {
+      textAlign: 'left',
     },
     listView: {
       paddingTop: 20,

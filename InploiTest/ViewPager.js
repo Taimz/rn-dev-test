@@ -1,3 +1,5 @@
+//Facebook implementation for ViewPager in F8 App
+
 'use strict';
 
 const React = require('react');
@@ -49,11 +51,12 @@ class ViewPager extends React.Component {
   }
 
   render() {
-    if (Platform.OS === 'ios') {
+    console.log("RENDER VIEWPAGER")
+    // if (Platform.OS === 'ios') {
       return this.renderIOS();
-    } else {
-      return this.renderAndroid();
-    }
+    // } else {
+    //   return this.renderAndroid();
+    // }
   }
 
   renderIOS() {
@@ -102,35 +105,29 @@ class ViewPager extends React.Component {
   }
 
   componentWillReceiveProps(nextProps: Props) {
-    ////console.log("componentWillReceiveProps")
-    ////console.log("selectedIndex: " , this.state.selectedIndex);
-    ////console.log("nextProps: " , nextProps.selectedIndex);
+
     if (nextProps.selectedIndex !== this.state.selectedIndex) {
       ////console.log('CALLING SETSTATE');
       this.setState({selectedIndex: nextProps.selectedIndex, scrollingTo: null});
-      if (Platform.OS === 'ios') {
+      // if (Platform.OS === 'ios') {
         this.refs.scrollview.scrollTo({
           x: nextProps.selectedIndex * this.state.width,
           animated: true,
         });
         this.setState({scrollingTo: nextProps.selectedIndex});
-      } else {
-        this.refs.scrollview.setPage(nextProps.selectedIndex);
-        this.setState({selectedIndex: nextProps.selectedIndex});
-      }
+      //} else {
+      //   this.refs.scrollview.setPage(nextProps.selectedIndex);
+      //   this.setState({selectedIndex: nextProps.selectedIndex});
+      // }
     }
   }
 
   moveToPage(nextIndex: number) {
-    // ////console.log('Index: ' , this.state.selectedIndex);
-    // ////console.log('Next Index: ' , nextIndex);
-    // this.setState({selectedIndex: nextIndex, scrollingTo: null});
     const {onSelectedIndexChange} = this.props;
     onSelectedIndexChange && onSelectedIndexChange(nextIndex);
   }
 
   moveToNextPage() {
-    // ////console.log("VIEWPAGER NEXT");
     if (this.props.selectedIndex < this.props.count-1) {
       this.moveToPage(this.props.selectedIndex + 1);
     }

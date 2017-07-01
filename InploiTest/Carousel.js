@@ -1,3 +1,5 @@
+//Facebook implementation for Carousel in F8 App
+
 'use strict';
 
 import React, { Component } from 'react';
@@ -46,6 +48,7 @@ class Carousel extends React.Component {
     } else {
       style = styles.carouselAndroid;
     }
+    console.log("RENDER CAROUSEL")
     return (
       <ViewPager style={style} {...this.props} bounces={true} count={this.props.count} ref='viewPager'>
         {cards}
@@ -54,7 +57,6 @@ class Carousel extends React.Component {
   }
 
   moveToNextPage() {
-    ////console.log("Carousel NEXT");
     this.refs.viewPager.moveToNextPage();
   }
 
